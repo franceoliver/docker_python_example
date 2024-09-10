@@ -14,7 +14,7 @@ This guide explains how to build and run a Docker container with Python 3.12 and
 To build the Docker image, run the following command in the directory where your `Dockerfile` is located:
 
 ```bash
- docker build -t python3.12-pandas . '
+ docker build -t python3.12-pandas .
 ```
 
 This command creates an image named `python3.12-pandas`.
@@ -24,7 +24,7 @@ This command creates an image named `python3.12-pandas`.
 After building the image, run the container with the following command:
 
 ```bash
- docker run -d --name python3.12-container -v $(pwd):/app python3.12-pandas '
+ docker run -d --name python3.12-container -v $(pwd):/app python3.12-pandas
 ```
 
 - `-d` runs the container in detached mode (in the background).
@@ -46,7 +46,7 @@ Look for `python3.12-container` in the list of running containers.
 To view all Python packages installed inside the Docker container, use the following command:
 
 ```bash
- docker exec -it python3.12-container pip list '
+ docker exec -it python3.12-container pip list 
 ```
 
 This will display a list of installed Python packages, including `pandas` Use this to confirm the correct packages are being installed.
@@ -56,7 +56,7 @@ This will display a list of installed Python packages, including `pandas` Use th
 To execute your Python script inside the Docker container, use the `docker exec` command. Replace `your_script.py` with the path to your script:
 
 ```bash
- docker exec -it python3.12-container python /app/your_script.py '
+ docker exec -it python3.12-container python /app/dummy_pandas_script.py
 ```
 
 This will run your Python script within the container's environment using Python 3.12 and Pandas.
@@ -68,11 +68,11 @@ When you're done with the container, you can stop and remove it using the follow
 Stop the container:
 
 ```bash
- docker stop python3.12-container '
+ docker stop python3.12-container 
 ```
 
 Remove the container:
 
 ```bash
- docker rm python3.12-container '
+ docker rm python3.12-container 
 ```
